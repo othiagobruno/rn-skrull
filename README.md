@@ -7,8 +7,6 @@ a complete ui library to react native
 |------------|-------------|
 | <img src="./examples/assets/example.png" width="250"> | <img src="./examples/assets/example2.png" width="250"> |
 
-![Optional Text]()
-
 ## Installation
 
 ```bash
