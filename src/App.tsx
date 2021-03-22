@@ -17,11 +17,7 @@ const App: React.FC = () => {
       <AppBar
         title="Theme Details"
         left={<AppBarIcon name="menu" />}
-        right={[
-          <AppBarIcon name="search" />,
-          <AppBarIcon badge={2} name="shopping-cart" />,
-          <AppBarIcon badge={2} name="shopping-cart" />
-        ]}
+        right={[<AppBarIcon name="search" />, <AppBarIcon badge={2} name="shopping-cart" />]}
       />
       <SafeAreaView>
         <ScrollView>

@@ -3,6 +3,9 @@
 
 a complete ui library to react native
 
+
+![Optional Text](./examples/assets/example.png)
+
 ## Installation
 
 ```bash
