@@ -33,9 +33,18 @@ import {AppBar, AppBarIcon, Button} from 'rn-skrull';
 ```javascript
 import { Button } from 'rn-skrull';
 
-<Button icon="user" variant="outline">Button</Button>
+<Button icon="user" size="small" variant="outline">Button</Button>
 
 ```
+| Props |    value       |
+|------------|-------------|
+| size |    small |
+| icon |    IconSource or Feather icon name |
+| variant |    outline, solid, text |
+| onPress |   function |
+| style |   StyleSheet |
+| disabled |  true or false |
+| loading |   true or false |
 
 #### Title
 ```javascript
@@ -59,6 +68,13 @@ import { IconButton } from 'rn-skrull';
 
 <IconButton icon="home" variant="solid" />
 ```
+| Props |    value       |
+|------------|-------------|
+| icon |    IconSource or Feather icon name |
+| variant |    outline, solid, default |
+| onPress |   function |
+| style |   StyleSheet |
+| disabled |  true or false |
 
 #### Paragraph
 ```javascript
@@ -73,6 +89,23 @@ import { Spacing } from 'rn-skrull';
 
 <Spacing />
 ```
+| Props |    value       |
+|------------|-------------|
+| width |    number |
+| height |    number |
+
+#### ActivityIndicator
+```javascript
+import { ActivityIndicator } from 'rn-skrull';
+
+<ActivityIndicator />
+```
+| Props |    value       |
+|------------|-------------|
+| color |    string |
+| size |    "small" / "larger" / number  |
+| animating |    true or false |
+| style |   styleProps |
 
 ## Contributing
 Pull requests are welcome. For major changes, please open an issue first to discuss what you would like to change.

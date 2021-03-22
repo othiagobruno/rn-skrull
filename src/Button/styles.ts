@@ -68,6 +68,10 @@ export const useStyles = () => {
     },
     pressed_opacity: {
       backgroundColor: pressed_opacity
+    },
+
+    button_disabled: {
+      opacity: 0.6
     }
   });
 };

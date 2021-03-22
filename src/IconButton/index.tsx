@@ -1,18 +1,26 @@
 import React from 'react';
-import {Pressable, Text, View, ViewStyle} from 'react-native';
+import {GestureResponderEvent, Pressable, StyleProp, Text, View, ViewStyle} from 'react-native';
 import Icon from 'react-native-vector-icons/Feather';
 import {IconProps} from 'react-native-vector-icons/Icon';
 import {useStyles} from './styles';
 
 interface Props {
-  style?: ViewStyle;
+  style?: StyleProp<ViewStyle>;
   variant?: 'outline' | 'solid' | 'default';
   icon?: React.ReactElement<IconProps> | string;
   color?: string;
   badge?: number;
+  onPress?: (event: GestureResponderEvent) => void;
 }
 
-const IconButton: React.FC<Props> = ({style, badge = 0, variant = 'default', icon = null, color = null}) => {
+const IconButton: React.FC<Props> = ({
+  style,
+  badge = 0,
+  onPress = () => {},
+  variant = 'default',
+  icon = null,
+  color = null
+}) => {
   const styles = useStyles();
 
   const color_theme =
@@ -24,6 +32,7 @@ const IconButton: React.FC<Props> = ({style, badge = 0, variant = 'default', ico
 
   return (
     <Pressable
+      onPress={onPress}
       style={({pressed}) => [
         styles.button,
         styles[variant],

@@ -1,5 +1,5 @@
 import React from 'react';
-import {SafeAreaView, View} from 'react-native';
+import {GestureResponderEvent, SafeAreaView, View} from 'react-native';
 import {useTheme} from '../ThemeProvider';
 import IconButton from '../IconButton';
 import Title from '../Title';
@@ -15,12 +15,14 @@ interface AppBarProps {
 interface IconProps {
   name: string;
   badge?: number;
+  onPress?: (event: GestureResponderEvent) => void;
 }
 
-export const AppBarIcon: React.FC<IconProps> = ({name, badge}) => {
+export const AppBarIcon: React.FC<IconProps> = ({name, badge, onPress = () => {}}) => {
   const theme = useTheme();
   return (
     <IconButton
+      onPress={onPress}
       style={useStyles().icon}
       badge={badge}
       color={theme.theme?.appBar?.color}

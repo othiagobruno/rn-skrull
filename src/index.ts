@@ -10,3 +10,4 @@ export {default as Spacing} from './Spacing';
 export {default as Label} from './Label';
 export {default as IconButton} from './IconButton';
 export {default as AppBar, AppBarIcon} from './AppBar';
+export {ActivityIndicator} from './ActivityIndicator';
