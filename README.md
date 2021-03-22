@@ -3,8 +3,11 @@
 
 a complete ui library to react native
 
+| Theme Details      | Button Press     |
+|------------|-------------|
+| <img src="./examples/assets/example.png" width="250"> | <img src="./examples/assets/example2.png" width="250"> |
 
-![Optional Text](./examples/assets/example.png)
+![Optional Text]()
 
 ## Installation
 
