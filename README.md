@@ -68,9 +68,9 @@ import { Button } from 'rn-skrull';
 ```
 | Props |    value       |
 |------------|-------------|
-| size |    small |
+| size |    small / larger / medium |
 | icon |    IconSource or Feather icon name |
-| variant |    outline, solid, text |
+| variant |    outline / solid / text |
 | onPress |   function |
 | style |   StyleSheet |
 | disabled |  true or false |
@@ -101,7 +101,7 @@ import { IconButton } from 'rn-skrull';
 | Props |    value       |
 |------------|-------------|
 | icon |    IconSource or Feather icon name |
-| variant |    outline, solid, default |
+| variant |    outline / solid / default |
 | onPress |   function |
 | style |   StyleSheet |
 | disabled |  true or false |
