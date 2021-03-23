@@ -8,7 +8,7 @@ const ThemeContext = createContext<ThemeProvider>({
 });
 
 interface ThemeProvider {
-  theme?: ITheme;
+  theme: ITheme;
 }
 
 export const ThemeProvider: React.FC<ThemeProvider> = ({children, theme}) => {
@@ -19,7 +19,7 @@ export const ThemeProvider: React.FC<ThemeProvider> = ({children, theme}) => {
         theme: userTheme
       }}
     >
-      <View style={{flex: 1, backgroundColor: userTheme?.background}}>{children}</View>
+      <View style={{flex: 1, backgroundColor: userTheme.background}}>{children}</View>
     </ThemeContext.Provider>
   );
 };

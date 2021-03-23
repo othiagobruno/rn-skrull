@@ -9,7 +9,7 @@ export const useStyles = () => {
 
   return StyleSheet.create({
     button: {
-      borderColor: theme?.primary,
+      borderColor: theme.primary,
       padding: 10,
       borderRadius: 50,
       width: 50,
@@ -23,7 +23,7 @@ export const useStyles = () => {
     },
 
     solid: {
-      backgroundColor: theme?.primary
+      backgroundColor: theme.primary
     },
 
     icon_white: {
@@ -31,7 +31,7 @@ export const useStyles = () => {
     },
 
     icon_theme: {
-      color: theme?.primary
+      color: theme.primary
     },
 
     outline: {

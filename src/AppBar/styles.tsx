@@ -7,7 +7,7 @@ export const useStyles = () => {
   return StyleSheet.create({
     appBar: {
       borderColor: '#ccc',
-      backgroundColor: theme?.appBar?.background
+      backgroundColor: theme.appBar.background
     },
 
     safe: {
@@ -22,7 +22,7 @@ export const useStyles = () => {
       textTransform: 'uppercase',
       paddingLeft: 10,
       fontWeight: 'bold',
-      color: theme?.appBar?.color,
+      color: theme.appBar.color,
       flex: 1,
       textAlign: 'center'
     },
@@ -30,7 +30,7 @@ export const useStyles = () => {
     icon: {
       width: 42,
       height: 42,
-      color: theme?.appBar?.color
+      color: theme.appBar.color
     },
 
     row: {

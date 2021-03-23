@@ -15,6 +15,35 @@ yarn add rn-skrull
 
 ## Usage
 
+
+#### Theme
+Applying a theme to the whole app
+
+```javascript
+import { ThemeProvider } from 'rn-skrull';
+
+export default function App {
+  return (
+    <ThemeProvider theme={{background: '#fff', text: 'red'}}>
+      <App />
+    </ThemeProvider>
+  );
+}
+```
+
+You can also use the useTheme hook:
+```javascript
+import { useTheme, Button } from 'rn-skrull';
+
+export default function App {
+  const { theme } = useTheme();
+  return (
+    <Button style={{ backgroundColor: theme.primary }}>Button</Button>
+  );
+}
+```
+
+
 #### AppBar
 
 ```javascript
@@ -29,6 +58,7 @@ import {AppBar, AppBarIcon, Button} from 'rn-skrull';
    ]}
 />
 ```
+
 #### Buttons
 ```javascript
 import { Button } from 'rn-skrull';
