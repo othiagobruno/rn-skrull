@@ -3,9 +3,9 @@ import Color from 'color';
 import {useTheme} from '../ThemeProvider';
 
 export const useStyles = () => {
-  const theme = useTheme().theme;
-  const pressed = new Color(theme?.primary).darken(0.1).string();
-  const pressed_opacity = new Color(theme?.primary).fade(0.8).string();
+  const {colors} = useTheme();
+  const pressed = new Color(colors?.primary).darken(0.1).string();
+  const pressed_opacity = new Color(colors?.primary).fade(0.8).string();
 
   return StyleSheet.create({
     label: {
@@ -16,7 +16,7 @@ export const useStyles = () => {
     },
 
     label_outline: {
-      color: theme?.primary
+      color: colors?.primary
     },
 
     icon: {
@@ -27,15 +27,15 @@ export const useStyles = () => {
     label_solid: {},
 
     label_text: {
-      color: theme?.primary
+      color: colors?.primary
     },
 
     button: {
       paddingHorizontal: 20,
       paddingVertical: 12,
       borderRadius: 4,
-      backgroundColor: theme?.primary,
-      borderColor: theme?.primary,
+      backgroundColor: colors?.primary,
+      borderColor: colors?.primary,
       flexDirection: 'row',
       justifyContent: 'center'
     },

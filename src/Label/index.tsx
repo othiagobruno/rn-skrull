@@ -10,8 +10,8 @@ interface Props {
 }
 
 const Label: React.FC<Props> = ({children, style}) => {
-  const color = useTheme().theme?.label;
-  return <Text style={[styles.text, {color}, style]}>{children}</Text>;
+  const {colors} = useTheme();
+  return <Text style={[styles.text, {color: colors.label}, style]}>{children}</Text>;
 };
 
 export default Label;

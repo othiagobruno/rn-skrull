@@ -10,6 +10,7 @@ import Spacing from './Spacing';
 import Label from './Label';
 import IconButton from './IconButton';
 import AppBar, {AppBarIcon} from './AppBar';
+import Input from './Input';
 
 const App: React.FC = () => {
   return (
@@ -19,12 +20,26 @@ const App: React.FC = () => {
         left={<AppBarIcon name="menu" />}
         right={[<AppBarIcon name="search" />, <AppBarIcon badge={2} name="shopping-cart" />]}
       />
-      <SafeAreaView>
+      <SafeAreaView style={{flex: 1}}>
         <ScrollView>
           <View style={styles.container}>
             <Title>Text Title</Title>
             <Spacing />
             <Paragraph>Text Paragraph</Paragraph>
+            <Spacing />
+
+            <Label>Outlined Input</Label>
+            <Input placeholder="Email" prefix={<IconButton icon="at-sign" />} />
+            <Spacing height={8} />
+            <Label>Flat Input</Label>
+            <Input placeholder="Password" variant="flat" suffix={<IconButton icon="eye" />} />
+            <Spacing height={8} />
+            <Label>Solid Input</Label>
+            <Input placeholder="Username" variant="solid" prefix={<IconButton icon="user" />} />
+            <Spacing />
+
+            <Label>Disabled Input</Label>
+            <Input disabled placeholder="Username" variant="outline" prefix={<IconButton icon="user" />} />
             <Spacing />
 
             <Label>Larger Button Solid</Label>

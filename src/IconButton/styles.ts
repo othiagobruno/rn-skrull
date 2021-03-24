@@ -3,13 +3,13 @@ import Color from 'color';
 import {useTheme} from '../ThemeProvider';
 
 export const useStyles = () => {
-  const theme = useTheme().theme;
-  const pressed = new Color(theme?.primary).darken(0.1).string();
-  const pressed_opacity = new Color(theme?.primary).fade(0.8).string();
+  const {colors} = useTheme();
+  const pressed = new Color(colors.primary).darken(0.1).string();
+  const pressed_opacity = new Color(colors.primary).fade(0.8).string();
 
   return StyleSheet.create({
     button: {
-      borderColor: theme.primary,
+      borderColor: colors.primary,
       padding: 10,
       borderRadius: 50,
       width: 50,
@@ -23,7 +23,7 @@ export const useStyles = () => {
     },
 
     solid: {
-      backgroundColor: theme.primary
+      backgroundColor: colors.primary
     },
 
     icon_white: {
@@ -31,7 +31,7 @@ export const useStyles = () => {
     },
 
     icon_theme: {
-      color: theme.primary
+      color: colors.primary
     },
 
     outline: {

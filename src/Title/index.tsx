@@ -11,10 +11,10 @@ interface Props {
 }
 
 const Title: React.FC<Props> = ({children, style, numberOfLines}) => {
-  const textColor = useTheme().theme?.text;
+  const {colors} = useTheme();
 
   return (
-    <Text ellipsizeMode="tail" numberOfLines={numberOfLines} style={[styles.title, {color: textColor}, style]}>
+    <Text ellipsizeMode="tail" numberOfLines={numberOfLines} style={[styles.title, {color: colors.text}, style]}>
       {children}
     </Text>
   );

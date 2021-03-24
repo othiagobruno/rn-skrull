@@ -2,12 +2,12 @@ import {Dimensions, StyleSheet} from 'react-native';
 import {useTheme} from '../ThemeProvider';
 
 export const useStyles = () => {
-  const theme = useTheme().theme;
+  const {colors} = useTheme();
 
   return StyleSheet.create({
     appBar: {
       borderColor: '#ccc',
-      backgroundColor: theme.appBar.background
+      backgroundColor: colors.appBar.background
     },
 
     safe: {
@@ -22,7 +22,7 @@ export const useStyles = () => {
       textTransform: 'uppercase',
       paddingLeft: 10,
       fontWeight: 'bold',
-      color: theme.appBar.color,
+      color: colors.appBar.color,
       flex: 1,
       textAlign: 'center'
     },
@@ -30,7 +30,7 @@ export const useStyles = () => {
     icon: {
       width: 42,
       height: 42,
-      color: theme.appBar.color
+      color: colors.appBar.color
     },
 
     row: {

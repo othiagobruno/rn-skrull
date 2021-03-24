@@ -10,8 +10,8 @@ interface Props {
 }
 
 const Paragraph: React.FC<Props> = ({children, style}) => {
-  const color = useTheme().theme?.text;
-  return <Text style={[styles.text, {color}, style]}>{children}</Text>;
+  const {colors} = useTheme();
+  return <Text style={[styles.text, {color: colors.text}, style]}>{children}</Text>;
 };
 
 export default Paragraph;

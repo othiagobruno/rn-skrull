@@ -19,13 +19,13 @@ interface IconProps {
 }
 
 export const AppBarIcon: React.FC<IconProps> = ({name, badge, onPress = () => {}}) => {
-  const theme = useTheme();
+  const {colors} = useTheme();
   return (
     <IconButton
       onPress={onPress}
       style={useStyles().icon}
       badge={badge}
-      color={theme.theme?.appBar?.color}
+      color={colors.appBar.color}
       icon={name}
       variant="default"
     />

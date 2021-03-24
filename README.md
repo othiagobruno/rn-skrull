@@ -23,8 +23,50 @@ Applying a theme to the whole app
 import { ThemeProvider } from 'rn-skrull';
 
 export default function App {
+    const theme: ITheme = {
+      colors: {
+        primary: '#00b894',
+        background: '#fffff',
+        text: '#2d3436',
+        label: '#636e72',
+        appBar: {
+          background: '#dfe6e9',
+          color: '#222'
+        }
+      },
+      components: {
+        input: {
+          unselectOutlineColor: '#ccc',
+          disabled: {
+            opacity: 0.5
+          },
+          variants: {
+            inital: {
+              borderRadius: 8,
+              paddingHorizontal: 15,
+              paddingVertical: 14,
+              fontSize: 16
+            },
+            outline: {
+              borderWidth: 2,
+              borderRadius: 10
+            },
+            solid: {
+              borderRadius: 10,
+              borderWidth: 0,
+              backgroundColor: '#dfe6e9'
+            },
+            flat: {
+              borderRadius: 0,
+              borderBottomWidth: 2
+            }
+          }
+        }
+      }
+    };
+
   return (
-    <ThemeProvider theme={{background: '#fff', text: 'red'}}>
+    <ThemeProvider theme={theme}>
       <App />
     </ThemeProvider>
   );
@@ -36,9 +78,11 @@ You can also use the useTheme hook:
 import { useTheme, Button } from 'rn-skrull';
 
 export default function App {
-  const { theme } = useTheme();
+  const { colors } = useTheme();
   return (
-    <Button style={{ backgroundColor: theme.primary }}>Button</Button>
+    <Button style={{ backgroundColor: colors.primary }}>
+      Button
+    </Button>
   );
 }
 ```

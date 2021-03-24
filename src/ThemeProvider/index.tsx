@@ -3,29 +3,23 @@ import {View} from 'react-native';
 import {DefaultTheme} from './theme';
 import {ITheme} from './theme.d';
 
-const ThemeContext = createContext<ThemeProvider>({
-  theme: DefaultTheme
-});
+const ThemeContext = createContext<ITheme>(DefaultTheme);
 
 interface ThemeProvider {
-  theme: ITheme;
+  theme?: ITheme;
 }
 
 export const ThemeProvider: React.FC<ThemeProvider> = ({children, theme}) => {
   const userTheme = {...DefaultTheme, ...theme};
   return (
-    <ThemeContext.Provider
-      value={{
-        theme: userTheme
-      }}
-    >
-      <View style={{flex: 1, backgroundColor: userTheme.background}}>{children}</View>
+    <ThemeContext.Provider value={userTheme}>
+      <View style={{flex: 1, backgroundColor: userTheme.colors.background}}>{children}</View>
     </ThemeContext.Provider>
   );
 };
 
 export const useTheme = () => {
-  const context = useContext<ThemeProvider>(ThemeContext);
+  const context = useContext<ITheme>(ThemeContext);
   if (!context) {
     throw new Error('The context must be within a valid provider');
   }
