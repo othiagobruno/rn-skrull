@@ -12,7 +12,7 @@ export const useStyles = () => {
 
     input: {
       flex: 1,
-      ...theme.components.input.variants.inital
+      ...theme.components.input.variants.default
     },
 
     outline: {

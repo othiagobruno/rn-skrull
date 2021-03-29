@@ -2,35 +2,26 @@ import {Dimensions, StyleSheet} from 'react-native';
 import {useTheme} from '../ThemeProvider';
 
 export const useStyles = () => {
-  const {colors} = useTheme();
+  const {colors, components} = useTheme();
 
   return StyleSheet.create({
     appBar: {
-      borderColor: '#ccc',
-      backgroundColor: colors.appBar.background
+      ...components.appBar.container,
+      backgroundColor: components.appBar.container.backgroundColor ?? colors.appBar.background
     },
 
     safe: {
-      paddingVertical: 6,
-      flexDirection: 'row',
-      alignItems: 'center',
-      justifyContent: 'space-between'
+      ...components.appBar.wrapper
     },
 
     title: {
-      fontSize: 18,
-      textTransform: 'uppercase',
-      paddingLeft: 10,
-      fontWeight: 'bold',
-      color: colors.appBar.color,
-      flex: 1,
-      textAlign: 'center'
+      ...components.appBar.title,
+      color: components.appBar.icons.color ?? colors.appBar.color
     },
 
     icon: {
-      width: 42,
-      height: 42,
-      color: colors.appBar.color
+      ...components.appBar.icons,
+      color: components.appBar.icons.color ?? colors.appBar.color
     },
 
     row: {
@@ -39,13 +30,14 @@ export const useStyles = () => {
       width: Dimensions.get('screen').width / 3.6,
       paddingLeft: 6
     },
+
     center: {
       flexDirection: 'row',
       alignItems: 'center',
       width: Dimensions.get('screen').width / 2.4,
-      justifyContent: 'center',
-      flexWrap: 'nowrap'
+      justifyContent: 'center'
     },
+
     row_end: {
       flexDirection: 'row',
       alignItems: 'center',

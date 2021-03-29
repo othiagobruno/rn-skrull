@@ -1,8 +1,7 @@
 import React from 'react';
 import {Text, TextStyle} from 'react-native';
-import {useTheme} from '../ThemeProvider';
 
-import {styles} from './styles';
+import {useStyles} from './styles';
 
 interface Props {
   children: string;
@@ -11,10 +10,10 @@ interface Props {
 }
 
 const Title: React.FC<Props> = ({children, style, numberOfLines}) => {
-  const {colors} = useTheme();
+  const styles = useStyles();
 
   return (
-    <Text ellipsizeMode="tail" numberOfLines={numberOfLines} style={[styles.title, {color: colors.text}, style]}>
+    <Text ellipsizeMode="tail" numberOfLines={numberOfLines} style={[styles.text, style]}>
       {children}
     </Text>
   );

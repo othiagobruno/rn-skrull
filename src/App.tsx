@@ -14,7 +14,7 @@ import Input from './Input';
 
 const App: React.FC = () => {
   return (
-    <ThemeProvider>
+    <ThemeProvider theme={{colors: {primary: '#009688', appBar: {background: '#009688', color: 'white'}}}}>
       <AppBar
         title="Theme Details"
         left={<AppBarIcon name="menu" />}

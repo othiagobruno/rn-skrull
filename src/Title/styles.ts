@@ -1,8 +1,13 @@
+import {useTheme} from '../ThemeProvider';
 import {StyleSheet} from 'react-native';
 
-export const styles = StyleSheet.create({
-  title: {
-    fontSize: 28,
-    fontWeight: '500'
-  }
-});
+export const useStyles = () => {
+  const {components, colors} = useTheme();
+
+  return StyleSheet.create({
+    text: {
+      ...components.title,
+      color: components.title.color ?? colors.text
+    }
+  });
+};

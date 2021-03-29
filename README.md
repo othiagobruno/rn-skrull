@@ -3,9 +3,9 @@
 
 a complete ui library to react native
 
-| Theme Details      | Button Press     |
-|------------|-------------|
-| <img src="./examples/assets/example.png" width="250"> | <img src="./examples/assets/example2.png" width="250"> |
+| 01         | 02          |    03       |
+|------------|-------------|-------------|
+| <img src="./examples/assets/example3.png" width="250"> | <img src="./examples/assets/example2.png" width="250"> | <img src="./examples/assets/example.png" width="250"> |
 
 ## Installation
 
@@ -23,7 +23,7 @@ Applying a theme to the whole app
 import { ThemeProvider } from 'rn-skrull';
 
 export default function App {
-    const theme: ITheme = {
+    const theme = {
       colors: {
         primary: '#00b894',
         background: '#fffff',
@@ -41,7 +41,7 @@ export default function App {
             opacity: 0.5
           },
           variants: {
-            inital: {
+            default: {
               borderRadius: 8,
               paddingHorizontal: 15,
               paddingVertical: 14,
@@ -62,11 +62,12 @@ export default function App {
             }
           }
         }
+        ...
       }
     };
 
   return (
-    <ThemeProvider theme={theme}>
+    <ThemeProvider theme={theme}> // put your theme here
       <App />
     </ThemeProvider>
   );
@@ -94,7 +95,7 @@ export default function App {
 import {AppBar, AppBarIcon, Button} from 'rn-skrull';
 
 <AppBar
-   title="Title"
+   title="Title" // or a JSX.Element
    left={<AppBarIcon name="menu" />}
    right={[
      <AppBarIcon name="search" />,
@@ -110,15 +111,33 @@ import { Button } from 'rn-skrull';
 <Button icon="user" size="small" variant="outline">Button</Button>
 
 ```
-| Props |    value       |
-|------------|-------------|
-| size |    small / larger / medium |
-| icon |    IconSource or Feather icon name |
-| variant |    outline / solid / text |
-| onPress |   function |
-| style |   StyleSheet |
-| disabled |  true or false |
-| loading |   true or false |
+| Props                | Value                   |
+|----------------------|-------------------------|
+| size                 | small / larger / medium |
+| icon                 | IconSource              |
+| variant              | outline / solid / text  |
+| onPress              | Function                |
+| style                | StyleSheet              |
+| disabled             | Boolean                 |
+| loading              | Boolean                 |
+
+#### Inputs
+```javascript
+import { Input } from 'rn-skrull';
+
+<Input placeholder="Email" prefix={<IconButton icon="at-sign" />} />
+
+```
+|      Props         |          Value         |
+|--------------------|------------------------|
+| placeholder        | String                 |
+| prefix             | JSX Element            |
+| suffix             | JSX Element            |
+| variant            | outline / solid / flat |
+| onChange           | Function               |
+| style              | StyleSheet             |
+| disabled           | Boolean                |
+
 
 #### Title
 ```javascript
@@ -142,13 +161,13 @@ import { IconButton } from 'rn-skrull';
 
 <IconButton icon="home" variant="solid" />
 ```
-| Props |    value       |
-|------------|-------------|
-| icon |    IconSource or Feather icon name |
-| variant |    outline / solid / default |
-| onPress |   function |
-| style |   StyleSheet |
-| disabled |  true or false |
+| Props      | Value                     |
+|------------|---------------------------|
+| icon       | IconSource                |
+| variant    | outline / solid / default |
+| onPress    | Function                  |
+| style      | StyleSheet                |
+| disabled   | Boolen                    |
 
 #### Paragraph
 ```javascript
@@ -163,10 +182,11 @@ import { Spacing } from 'rn-skrull';
 
 <Spacing />
 ```
-| Props |    value       |
+| Props      | Value       |
 |------------|-------------|
-| width |    number |
-| height |    number |
+| width      | Number      |
+| height     | Number      |
+
 
 #### ActivityIndicator
 ```javascript
@@ -174,12 +194,12 @@ import { ActivityIndicator } from 'rn-skrull';
 
 <ActivityIndicator />
 ```
-| Props |    value       |
-|------------|-------------|
-| color |    string |
-| size |    "small" / "larger" / number  |
-| animating |    true or false |
-| style |   styleProps |
+| Props      | Value                    |
+|------------|--------------------------|
+| color      | String                   |
+| size       | small / larger / Number  |
+| animating  | Boolean                  |
+| style      | StyleSheet               |
 
 ## Contributing
 Pull requests are welcome. For major changes, please open an issue first to discuss what you would like to change.

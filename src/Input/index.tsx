@@ -17,7 +17,6 @@ const Input: React.FC<Props> = ({variant = 'outline', prefix, disabled, suffix, 
   const animate = useRef(new Animated.Value(1)).current;
 
   useEffect(() => {
-    console.log(focused);
     if (focused) {
       Animated.timing(animate, {
         toValue: 3,

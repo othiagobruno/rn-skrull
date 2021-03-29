@@ -1,8 +1,41 @@
+import {TextStyle, ViewStyle} from 'react-native';
+
 export interface ITheme {
   colors: Colors;
   components: {
     input: Input;
+    button: Button;
+    title: TextStyle;
+    paragraph: TextStyle;
+    label: TextStyle;
+    appBar: AppBarComponent;
   };
+}
+
+interface AppBarComponent {
+  container: ViewStyle;
+  wrapper: ViewStyle;
+  title: TextStyle;
+  icons: TextStyle;
+}
+
+interface Button {
+  disabled: {
+    opacity: number;
+  };
+  focusPressed: ViewStyle;
+  variants: {
+    default: ViewStyle;
+    outline: ViewStyle;
+    text: ViewStyle;
+    solid: ViewStyle;
+  };
+  sizes: {
+    small: ViewStyle;
+    larger: ViewStyle;
+    medium: ViewStyle;
+  };
+  labelStyle: TextStyle;
 }
 
 interface Input {
@@ -11,34 +44,19 @@ interface Input {
   };
   unselectOutlineColor: string;
   variants: {
-    inital: {
-      borderRadius: number;
-      paddingHorizontal: number;
-      paddingVertical: number;
-      fontSize: number;
-    };
-    outline: {
-      borderWidth: number;
-      borderRadius: number;
-    };
-    solid: {
-      borderRadius: number;
-      borderWidth: number;
-      backgroundColor: string;
-    };
-    flat: {
-      borderRadius: number;
-      borderBottomWidth: number;
-    };
+    default: ViewStyle | TextStyle;
+    outline: ViewStyle | TextStyle;
+    solid: ViewStyle | TextStyle;
+    flat: ViewStyle | TextStyle;
   };
 }
 
 interface Colors {
-  primary: string;
-  background: string;
-  text: string;
-  label: string;
-  appBar: AppBar;
+  primary?: string;
+  background?: string;
+  text?: string;
+  label?: string;
+  appBar?: AppBar;
 }
 
 interface AppBar {

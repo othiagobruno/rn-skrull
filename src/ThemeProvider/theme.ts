@@ -11,15 +11,108 @@ export const DefaultTheme: ITheme = {
       color: '#222'
     }
   },
-  // Input
   components: {
+    appBar: {
+      container: {
+        shadowColor: '#000',
+        shadowOffset: {
+          width: 0,
+          height: 1
+        },
+        shadowOpacity: 0.3,
+        shadowRadius: 2,
+        elevation: 5
+      },
+      wrapper: {
+        paddingVertical: 6,
+        flexDirection: 'row',
+        alignItems: 'center',
+        justifyContent: 'space-between'
+      },
+      title: {
+        fontSize: 18,
+        textTransform: 'uppercase',
+        paddingLeft: 10,
+        fontWeight: 'bold',
+        flex: 1
+      },
+      icons: {
+        width: 42,
+        height: 42
+      }
+    },
+    title: {
+      fontSize: 28,
+      fontWeight: '500',
+      lineHeight: 32
+    },
+    label: {
+      fontSize: 14,
+      marginVertical: 3
+    },
+    paragraph: {
+      fontSize: 17
+    },
+    button: {
+      disabled: {
+        opacity: 0.5
+      },
+      focusPressed: {
+        shadowColor: '#000',
+        shadowOffset: {
+          width: 0,
+          height: 2
+        },
+        shadowOpacity: 0.4,
+        shadowRadius: 3.84,
+        elevation: 5
+      },
+      variants: {
+        default: {
+          paddingHorizontal: 20,
+          paddingVertical: 12,
+          borderRadius: 4,
+          flexDirection: 'row',
+          justifyContent: 'center'
+        },
+        outline: {
+          backgroundColor: 'transparent',
+          borderWidth: 2
+        },
+        solid: {
+          alignItems: 'center'
+        },
+        text: {
+          alignItems: 'center',
+          backgroundColor: 'transparent'
+        }
+      },
+      sizes: {
+        small: {
+          paddingVertical: 8,
+          borderRadius: 4
+        },
+        larger: {
+          paddingVertical: 16
+        },
+        medium: {
+          paddingVertical: 12
+        }
+      },
+      labelStyle: {
+        fontSize: 16,
+        textTransform: 'uppercase',
+        fontWeight: '700',
+        color: '#fff'
+      }
+    },
     input: {
       unselectOutlineColor: '#ccc',
       disabled: {
         opacity: 0.5
       },
       variants: {
-        inital: {
+        default: {
           borderRadius: 8,
           paddingHorizontal: 15,
           paddingVertical: 14,

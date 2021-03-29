@@ -7,7 +7,7 @@ import Title from '../Title';
 import {useStyles} from './styles';
 
 interface AppBarProps {
-  title: string;
+  title: string | JSX.Element;
   left?: JSX.Element;
   right?: JSX.Element[];
 }
@@ -41,9 +41,13 @@ const AppBar: React.FC<AppBarProps> = ({title, left = null, right = null}) => {
         <View style={styles.safe}>
           <View style={styles.row}>{left}</View>
           <View style={styles.center}>
-            <Title numberOfLines={1} style={styles.title}>
-              {title}
-            </Title>
+            {typeof title === 'string' ? (
+              <Title numberOfLines={1} style={styles.title}>
+                {title}
+              </Title>
+            ) : (
+              title
+            )}
           </View>
           <View style={styles.row_end}>{right?.map((item, key) => key < 2 && <View key={key}>{item}</View>)}</View>
         </View>

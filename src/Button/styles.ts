@@ -3,16 +3,13 @@ import Color from 'color';
 import {useTheme} from '../ThemeProvider';
 
 export const useStyles = () => {
-  const {colors} = useTheme();
+  const {colors, components} = useTheme();
   const pressed = new Color(colors?.primary).darken(0.1).string();
   const pressed_opacity = new Color(colors?.primary).fade(0.8).string();
 
   return StyleSheet.create({
     label: {
-      fontSize: 16,
-      textTransform: 'uppercase',
-      fontWeight: '700',
-      color: '#fff'
+      ...components.button.labelStyle
     },
 
     label_outline: {
@@ -31,47 +28,46 @@ export const useStyles = () => {
     },
 
     button: {
-      paddingHorizontal: 20,
-      paddingVertical: 12,
-      borderRadius: 4,
-      backgroundColor: colors?.primary,
-      borderColor: colors?.primary,
-      flexDirection: 'row',
-      justifyContent: 'center'
+      ...components.button.variants.default,
+      backgroundColor: components.button.variants.default.backgroundColor ?? colors?.primary,
+      borderColor: components.button.variants.default.borderColor ?? colors?.primary
     },
 
     solid: {
-      alignItems: 'center'
+      ...components.button.variants.solid
     },
 
     outline: {
-      backgroundColor: 'transparent',
-      borderWidth: 2
+      ...components.button.variants.outline
     },
 
     text: {
-      alignItems: 'center',
-      backgroundColor: 'transparent'
+      ...components.button.variants.text
     },
 
     button_small: {
-      paddingVertical: 8,
-      borderRadius: 4
+      ...components.button.sizes.small
     },
 
     button_larger: {
-      paddingVertical: 16
+      ...components.button.sizes.larger
+    },
+
+    button_medium: {
+      ...components.button.sizes.medium
     },
 
     pressed: {
-      backgroundColor: pressed
+      ...components.button.focusPressed,
+      backgroundColor: components.button.focusPressed.backgroundColor ?? pressed
     },
+
     pressed_opacity: {
       backgroundColor: pressed_opacity
     },
 
     button_disabled: {
-      opacity: 0.6
+      ...components.button.disabled
     }
   });
 };

@@ -31,7 +31,7 @@ const Button: React.FC<Props> = ({
   disabled
 }) => {
   const styles = useStyles();
-  const theme = useTheme().theme;
+  const {colors} = useTheme();
 
   const labels =
     {
@@ -44,13 +44,13 @@ const Button: React.FC<Props> = ({
     {
       small: styles.button_small,
       larger: styles.button_larger,
-      medium: styles.button
+      medium: styles.button_medium
     }[size ?? 'medium'] ?? styles.button;
 
   const activity_loading = {
     solid: 'white',
-    text: theme?.primary,
-    outline: theme?.primary
+    text: colors.primary,
+    outline: colors.primary
   }[variant];
 
   return (

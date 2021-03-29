@@ -2,15 +2,16 @@ import React, {createContext, useContext} from 'react';
 import {View} from 'react-native';
 import {DefaultTheme} from './theme';
 import {ITheme} from './theme.d';
-
-const ThemeContext = createContext<ITheme>(DefaultTheme);
+import merge from 'deepmerge';
+import {iThemeOverride} from './theme.non.d';
+const ThemeContext = createContext<iThemeOverride>(DefaultTheme);
 
 interface ThemeProvider {
-  theme?: ITheme;
+  theme?: iThemeOverride;
 }
 
 export const ThemeProvider: React.FC<ThemeProvider> = ({children, theme}) => {
-  const userTheme = {...DefaultTheme, ...theme};
+  const userTheme = merge({...DefaultTheme}, {...theme});
   return (
     <ThemeContext.Provider value={userTheme}>
       <View style={{flex: 1, backgroundColor: userTheme.colors.background}}>{children}</View>
@@ -19,9 +20,9 @@ export const ThemeProvider: React.FC<ThemeProvider> = ({children, theme}) => {
 };
 
 export const useTheme = () => {
-  const context = useContext<ITheme>(ThemeContext);
+  const context = useContext<iThemeOverride>(ThemeContext);
   if (!context) {
     throw new Error('The context must be within a valid provider');
   }
-  return context;
+  return context as ITheme;
 };
