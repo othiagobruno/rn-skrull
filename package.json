@@ -2,8 +2,11 @@
   "name": "rn-skrull",
   "version": "1.1.3",
   "private": false,
-  "source": "src/index.ts",
+  "main": "lib/commonjs/index.js",
+  "module": "lib/module/index.js",
   "react-native": "src/index.ts",
+  "source": "src/index.ts",
+  "types": "lib/typescript/index.d.ts",
   "author": {
     "name": "Thiago Bruno Miranda",
     "email": "thiagobrunomiranda@gmail.com"
@@ -41,6 +44,7 @@
     "jest": "^26.6.3",
     "metro-react-native-babel-preset": "^0.64.0",
     "prettier": "^2.2.1",
+    "react-native-vector-icons": "^8.1.0",
     "react-test-renderer": "17.0.1",
     "typescript": "^4.2.3"
   },
@@ -51,5 +55,22 @@
     "react": "*",
     "react-native": "*",
     "react-native-vector-icons": "*"
+  },
+  "react-native-builder-bob": {
+    "source": "src",
+    "output": "lib",
+    "targets": [
+      "commonjs",
+      "module",
+      [
+        "typescript",
+        {
+          "project": "tsconfig.build.json"
+        }
+      ]
+    ],
+    "files": [
+      "src/"
+    ]
   }
 }
