@@ -1,2 +1,2 @@
-import types from './@types';
+import types from './src/index';
 export = types;

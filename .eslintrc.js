@@ -19,6 +19,7 @@ module.exports = {
     '@typescript-eslint/explicit-module-boundary-types': 'off',
     'max-len': ['warn', {code: 120, ignoreComments: true, ignoreStrings: true}],
     '@typescript-eslint/no-unused-vars': [2, {args: 'all', argsIgnorePattern: '^_'}],
-    '@typescript-eslint/no-empty-function': 'off'
+    '@typescript-eslint/no-empty-function': 'off',
+    'prettier/prettier': ['error', {endOfLine: 'auto'}]
   }
 };

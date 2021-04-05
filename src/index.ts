@@ -1,6 +1,6 @@
 // THEME PROVIDER
-export {ThemeProvider, useTheme} from './ThemeProvider';
-export {DefaultTheme} from './ThemeProvider/theme';
+import {ThemeProvider, useTheme} from './ThemeProvider';
+import {DefaultTheme} from './ThemeProvider/theme';
 
 // COMPONENTS
 export {default as Title} from './Title';
@@ -11,4 +11,6 @@ export {default as Label} from './Label';
 export {default as IconButton} from './IconButton';
 export {default as AppBar, AppBarIcon} from './AppBar';
 export {default as Input} from './Input';
-export {ActivityIndicator} from './ActivityIndicator';
+import {ActivityIndicator} from './ActivityIndicator';
+
+export {ActivityIndicator, ThemeProvider, useTheme, DefaultTheme};
