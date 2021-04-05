@@ -1,44 +1,23 @@
 {
   "compilerOptions": {
-<<<<<<< HEAD
     "target": "ESNext",
     "module": "ESNext",
-=======
-    "baseUrl": ".",
-    "paths": {
-      "rn-skrull": ["./src/index"]
-    },
-    "allowUnreachableCode": false,
-    "allowUnusedLabels": false,
->>>>>>> 3e137a7db19213b3916bc183369a21fa5a14f40b
     "esModuleInterop": true,
-    "forceConsistentCasingInFileNames": true,
-    "importsNotUsedAsValues": "error",
-    "jsx": "react",
-    "lib": ["esnext", "dom"],
-    "module": "esnext",
     "moduleResolution": "node",
-    "noFallthroughCasesInSwitch": true,
-    "noImplicitReturns": true,
-    "noImplicitUseStrict": false,
-    "noStrictGenericChecks": false,
+    "jsx": "react-native",
+    "skipLibCheck": true,
+    "resolveJsonModule": true,
+    "strict": true,
     "noUnusedLocals": true,
     "noUnusedParameters": true,
-<<<<<<< HEAD
     "allowJs": false,
     "emitDeclarationOnly": true,
     "declaration": true,
-    "declarationDir": "./generatedTypes",
+    "declarationDir": "./@types",
     "baseUrl": ".",
     "paths": {
       "rn-skrull": ["index.d.ts"]
     }
-=======
-    "resolveJsonModule": true,
-    "skipLibCheck": true,
-    "strict": true,
-    "target": "esnext"
->>>>>>> 3e137a7db19213b3916bc183369a21fa5a14f40b
   },
-  "exclude": ["lib/**/*"]
+  "exclude": [ "node_modules", "src/index.ts"]
 }
