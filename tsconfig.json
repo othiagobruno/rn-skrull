@@ -1,23 +1,28 @@
 {
   "compilerOptions": {
-    "target": "ESNext",
-    "module": "ESNext",
+    "baseUrl": ".",
+    "allowUnreachableCode": false,
+    "allowUnusedLabels": false,
     "esModuleInterop": true,
+    "forceConsistentCasingInFileNames": true,
+    "importsNotUsedAsValues": "error",
+    "jsx": "react",
+    "lib": ["esnext", "dom"],
+    "module": "esnext",
     "moduleResolution": "node",
-    "jsx": "react-native",
-    "skipLibCheck": true,
-    "resolveJsonModule": true,
-    "strict": true,
+    "noFallthroughCasesInSwitch": true,
+    "noImplicitReturns": true,
+    "noImplicitUseStrict": false,
+    "noStrictGenericChecks": false,
     "noUnusedLocals": true,
     "noUnusedParameters": true,
-    "allowJs": false,
-    "emitDeclarationOnly": true,
-    "declaration": true,
-    "declarationDir": "./@types",
-    "baseUrl": ".",
+    "resolveJsonModule": true,
+    "skipLibCheck": true,
+    "strict": true,
+    "target": "esnext",
     "paths": {
-      "rn-skrull": ["index.d.ts"]
+      "rn-skrull": ["./src/index"]
     }
   },
-  "exclude": [ "node_modules", "src/index.ts"]
+  "exclude": ["lib/**/*"]
 }

@@ -1,2 +1,2 @@
-import types from './src';
-export = types;
+import * as type from './src';
+export = type;
