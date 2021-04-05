@@ -10,7 +10,7 @@ interface Props extends TextInputProps {
   disabled?: boolean;
 }
 
-const Input: React.FC<Props> = ({variant = 'outline', prefix, disabled, suffix, ...rest}) => {
+const Input: React.FC<Props> = ({variant = 'outline', prefix, disabled, suffix, style, ...rest}) => {
   const styles = useStyles();
   const [focused, setFocused] = useState(false);
 
@@ -46,7 +46,7 @@ const Input: React.FC<Props> = ({variant = 'outline', prefix, disabled, suffix, 
       {prefix}
       <TextInput
         editable={!disabled}
-        style={styles.input}
+        style={[style, styles.input]}
         focusable
         onFocus={() => setFocused(true)}
         onBlur={() => setFocused(false)}
