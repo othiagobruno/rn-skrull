@@ -5,7 +5,7 @@ a complete ui library to react native
 
 | 01         | 02          |    03       |
 |------------|-------------|-------------|
-| <img src="./examples/assets/example.png" width="250"> | <img src="./examples/assets/example2.png" width="250"> | <img src="./examples/assets/example3.png" width="250"> |
+| <img src="./examples/assets/example1.png" width="250"> | <img src="./examples/assets/example2.png" width="250"> | <img src="./examples/assets/example3.png" width="250"> |
 
 ## Installation
 
