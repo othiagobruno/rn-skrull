@@ -1,4 +1,4 @@
-import {TextStyle, ViewStyle} from 'react-native';
+import type {TextStyle, ViewStyle} from 'react-native';
 
 export interface iThemeOverride {
   colors: Colors;

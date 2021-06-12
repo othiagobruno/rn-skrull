@@ -1,8 +1,9 @@
 import React, {useEffect, useRef, useState} from 'react';
-import {StyleProp, TextInput, ViewStyle, Animated, TextInputProps} from 'react-native';
+import {StyleProp, TextInput, ViewStyle, Animated, TextInputProps, TextStyle} from 'react-native';
+import {useTheme} from '../ThemeProvider';
 import {useStyles} from './styles';
 
-interface Props extends TextInputProps {
+interface Props extends TextInputProps, Omit<TextStyle, 'textAlign'> {
   style?: StyleProp<ViewStyle>;
   variant?: 'outline' | 'solid' | 'flat';
   prefix?: JSX.Element;
@@ -12,21 +13,21 @@ interface Props extends TextInputProps {
 
 const Input: React.FC<Props> = ({variant = 'outline', prefix, disabled, suffix, style, ...rest}) => {
   const styles = useStyles();
+  const theme = useTheme();
   const [focused, setFocused] = useState(false);
-
   const animate = useRef(new Animated.Value(1)).current;
 
   useEffect(() => {
     if (focused) {
       Animated.timing(animate, {
-        toValue: 3,
-        duration: 200,
+        toValue: 2.3,
+        duration: 150,
         useNativeDriver: false
       }).start();
     } else {
       Animated.timing(animate, {
         toValue: 1,
-        duration: 200,
+        duration: 150,
         useNativeDriver: false
       }).start();
     }
@@ -40,13 +41,15 @@ const Input: React.FC<Props> = ({variant = 'outline', prefix, disabled, suffix, 
         !focused && styles.unselect,
         variant === 'outline' && {borderWidth: animate},
         variant === 'flat' && {borderBottomWidth: animate},
-        !!disabled && styles.disabled
+        !!disabled && styles.disabled,
+        rest
       ]}
     >
       {prefix}
       <TextInput
         editable={!disabled}
         style={[style, styles.input]}
+        placeholderTextColor={rest.placeholderTextColor ?? theme.components.input.placeholderTextColor}
         focusable
         onFocus={() => setFocused(true)}
         onBlur={() => setFocused(false)}

@@ -13,7 +13,7 @@ export const useStyles = () => {
     },
 
     label_outline: {
-      color: colors?.primary
+      color: colors?.primary ?? ''
     },
 
     icon: {
@@ -24,13 +24,13 @@ export const useStyles = () => {
     label_solid: {},
 
     label_text: {
-      color: colors?.primary
+      color: colors?.primary ?? ''
     },
 
     button: {
       ...components.button.variants.default,
-      backgroundColor: components.button.variants.default.backgroundColor ?? colors?.primary,
-      borderColor: components.button.variants.default.borderColor ?? colors?.primary
+      backgroundColor: components.button.variants.default.backgroundColor ?? colors?.primary ?? '',
+      borderColor: components.button.variants.default.borderColor ?? colors?.primary ?? ''
     },
 
     solid: {

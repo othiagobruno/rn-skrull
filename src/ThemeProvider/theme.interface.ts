@@ -1,4 +1,4 @@
-import {TextStyle, ViewStyle} from 'react-native';
+import type {TextStyle, ViewStyle} from 'react-native';
 
 export interface ITheme {
   colors: Colors;
@@ -43,6 +43,7 @@ interface Input {
     opacity: number;
   };
   unselectOutlineColor: string;
+  placeholderTextColor: string;
   variants: {
     default: ViewStyle | TextStyle;
     outline: ViewStyle | TextStyle;

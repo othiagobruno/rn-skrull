@@ -4,12 +4,12 @@ import {useTheme} from '../ThemeProvider';
 
 export const useStyles = () => {
   const {colors} = useTheme();
-  const pressed = new Color(colors.primary).darken(0.1).string();
-  const pressed_opacity = new Color(colors.primary).fade(0.8).string();
+  const pressed = new Color(colors.primary).darken(0.5).string();
+  const pressed_opacity = new Color(colors.primary).darken(0.2).rgb().fade(0.8).string();
 
   return StyleSheet.create({
     button: {
-      borderColor: colors.primary,
+      borderColor: colors.primary ?? '',
       padding: 10,
       borderRadius: 50,
       width: 50,
@@ -23,7 +23,7 @@ export const useStyles = () => {
     },
 
     solid: {
-      backgroundColor: colors.primary
+      backgroundColor: colors.primary ?? ''
     },
 
     icon_white: {
@@ -31,7 +31,7 @@ export const useStyles = () => {
     },
 
     icon_theme: {
-      color: colors.primary
+      color: colors.primary ?? ''
     },
 
     outline: {

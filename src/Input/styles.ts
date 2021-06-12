@@ -16,7 +16,7 @@ export const useStyles = () => {
     },
 
     outline: {
-      borderColor: theme.colors.primary,
+      borderColor: theme.colors.primary ?? '',
       ...theme.components.input.variants.outline
     },
 
@@ -25,7 +25,7 @@ export const useStyles = () => {
     },
 
     flat: {
-      borderColor: theme.colors.primary,
+      borderColor: theme.colors.primary ?? '',
       ...theme.components.input.variants.flat
     },
 

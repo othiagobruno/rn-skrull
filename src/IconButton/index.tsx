@@ -1,16 +1,18 @@
 import React from 'react';
-import {GestureResponderEvent, Pressable, StyleProp, Text, View, ViewStyle} from 'react-native';
+import {GestureResponderEvent, Pressable, StyleProp, Text, TextStyle, View, ViewStyle} from 'react-native';
 import Icon from 'react-native-vector-icons/Feather';
-import {IconProps} from 'react-native-vector-icons/Icon';
+import type {IconProps} from 'react-native-vector-icons/Icon';
 import {useStyles} from './styles';
 
 interface Props {
   style?: StyleProp<ViewStyle>;
   variant?: 'outline' | 'solid' | 'default';
   icon?: React.ReactElement<IconProps> | string;
-  color?: string;
+  color?: string | undefined;
   badge?: number;
   onPress?: (event: GestureResponderEvent) => void;
+  badgeStyle?: ViewStyle;
+  badgeTextStyle?: TextStyle;
 }
 
 const IconButton: React.FC<Props> = ({
@@ -19,7 +21,9 @@ const IconButton: React.FC<Props> = ({
   onPress = () => {},
   variant = 'default',
   icon = null,
-  color = null
+  color = null,
+  badgeStyle,
+  badgeTextStyle
 }) => {
   const styles = useStyles();
 
@@ -41,18 +45,18 @@ const IconButton: React.FC<Props> = ({
         style
       ]}
     >
-      {icon && typeof icon === 'string' ? (
-        <View>
-          {badge > 0 && (
-            <View style={styles.badge}>
-              <Text style={styles.badge_label}>{!!badge && badge > 9 ? '9+' : badge}</Text>
-            </View>
-          )}
+      <View>
+        {!!badge && (
+          <View style={[styles.badge, badgeStyle]}>
+            <Text style={[styles.badge_label, badgeTextStyle]}>{!!badge && badge > 9 ? '9+' : badge}</Text>
+          </View>
+        )}
+        {icon && typeof icon === 'string' ? (
           <Icon name={icon} size={22} style={[color_theme, !!color && {color}]} />
-        </View>
-      ) : (
-        icon
-      )}
+        ) : (
+          icon
+        )}
+      </View>
     </Pressable>
   );
 };

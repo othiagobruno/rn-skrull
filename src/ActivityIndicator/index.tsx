@@ -3,7 +3,7 @@ import {Animated, Easing, StyleProp, StyleSheet, View, ViewStyle} from 'react-na
 
 interface Props {
   animating?: boolean;
-  color?: string;
+  color?: string | undefined;
   size?: 'small' | 'large' | number;
   style?: StyleProp<ViewStyle>;
 }

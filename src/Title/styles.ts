@@ -7,7 +7,7 @@ export const useStyles = () => {
   return StyleSheet.create({
     text: {
       ...components.title,
-      color: components.title.color ?? colors.text
+      color: components.title.color ?? colors.text ?? ''
     }
   });
 };

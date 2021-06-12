@@ -11,4 +11,7 @@ export {default as Label} from './Label';
 export {default as IconButton} from './IconButton';
 export {default as AppBar, AppBarIcon} from './AppBar';
 export {default as Input} from './Input';
+export {default as Stack} from './Stack';
+export {default as Box} from './Box';
+export {default as Center} from './Center';
 export {ActivityIndicator} from './ActivityIndicator';

@@ -1,20 +1,20 @@
 import {useTheme} from '../ThemeProvider';
 import React from 'react';
-import {GestureResponderEvent, Pressable, StyleProp, Text, TextStyle, ViewStyle} from 'react-native';
+import {GestureResponderEvent, Pressable, Text, TextStyle, ViewStyle} from 'react-native';
 import Icon from 'react-native-vector-icons/Feather';
 import {ActivityIndicator} from '../ActivityIndicator';
 import {useStyles} from './styles';
 
 interface Props {
   children: React.ReactElement | string;
-  style?: StyleProp<ViewStyle>;
-  labelStyle?: TextStyle;
+  style?: ViewStyle;
+  textStyle?: TextStyle;
   variant?: 'outline' | 'solid' | 'text';
   size?: 'small' | 'larger' | 'medium';
   icon?: Icon | string;
   onPress?: (event: GestureResponderEvent) => void;
   disabled?: boolean;
-  loading?: boolean;
+  isLoading?: boolean;
   loadingColor?: string;
 }
 
@@ -22,11 +22,11 @@ const Button: React.FC<Props> = ({
   children,
   style,
   size = 'medium',
-  labelStyle,
+  textStyle,
   variant = 'solid',
   onPress = () => {},
   icon = null,
-  loading,
+  isLoading,
   loadingColor,
   disabled
 }) => {
@@ -67,14 +67,14 @@ const Button: React.FC<Props> = ({
         style
       ]}
     >
-      {loading ? (
+      {isLoading ? (
         <ActivityIndicator size="small" color={loadingColor ?? activity_loading} style={[styles.icon, labels]} />
       ) : icon && typeof icon === 'string' ? (
         <Icon name={icon} size={20} style={[styles.icon, labels]} />
       ) : (
         icon
       )}
-      <Text style={[styles.label, labels, labelStyle]}>{children}</Text>
+      <Text style={[styles.label, labels, textStyle]}>{children}</Text>
     </Pressable>
   );
 };

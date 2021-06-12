@@ -1,9 +1,9 @@
 import React, {createContext, useContext} from 'react';
 import {View} from 'react-native';
 import {DefaultTheme} from './theme';
-import {ITheme} from './theme.d';
+import type {ITheme} from './theme.interface';
 import merge from 'deepmerge';
-import {iThemeOverride} from './theme.non.d';
+import type {iThemeOverride} from './theme.non.interface';
 const ThemeContext = createContext<iThemeOverride>(DefaultTheme);
 
 interface ThemeProvider {
@@ -14,7 +14,7 @@ export const ThemeProvider: React.FC<ThemeProvider> = ({children, theme}) => {
   const userTheme = merge({...DefaultTheme}, {...theme});
   return (
     <ThemeContext.Provider value={userTheme}>
-      <View style={{flex: 1, backgroundColor: userTheme.colors.background}}>{children}</View>
+      <View style={{flex: 1, backgroundColor: userTheme.colors.background ?? 'white'}}>{children}</View>
     </ThemeContext.Provider>
   );
 };

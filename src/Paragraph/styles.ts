@@ -7,7 +7,7 @@ export const useStyles = () => {
   return StyleSheet.create({
     text: {
       ...components?.paragraph,
-      color: components?.paragraph?.color ?? colors?.text
+      color: components?.paragraph?.color ?? colors?.text ?? ''
     }
   });
 };

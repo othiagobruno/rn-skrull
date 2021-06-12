@@ -5,7 +5,7 @@ a complete ui library to react native
 
 | 01         | 02          |    03       |
 |------------|-------------|-------------|
-| <img src="./examples/assets/example3.png" width="250"> | <img src="./examples/assets/example2.png" width="250"> | <img src="./examples/assets/example.png" width="250"> |
+| <img src="./examples/assets/example.png" width="250"> | <img src="./examples/assets/example2.png" width="250"> | <img src="./examples/assets/example3.png" width="250"> |
 
 ## Installation
 
@@ -37,6 +37,7 @@ export default function App {
       components: {
         input: {
           unselectOutlineColor: '#ccc',
+          placeholderTextColor: '#ccc',
           disabled: {
             opacity: 0.5
           },
@@ -88,6 +89,22 @@ export default function App {
 }
 ```
 
+#### Stack
+```javascript
+import { Stack, Box, Center, Title } from 'rn-skrull';
+
+<Stack align="center" direction="row" padding={20} />
+
+<Box padding={20} backgroundColor="blue" borderColor="red" borderWidth={2} />
+
+<Center>
+    <Title> is the center</Title>
+</Center>
+
+// You can use all the properties available in react-native's ViewStyle interface.
+```
+
+
 
 #### AppBar
 
@@ -95,13 +112,15 @@ export default function App {
 import {AppBar, AppBarIcon, Button} from 'rn-skrull';
 
 <AppBar
-   title="Title" // or a JSX.Element
-   left={<AppBarIcon name="menu" />}
-   right={[
-     <AppBarIcon name="search" />,
-     <AppBarIcon badge={2} name="shopping-cart" />,
-   ]}
-/>
+    title="Minha tela inicial"
+    left={<AppBarIcon name="menu" />}
+    right={() => (
+      <>
+        <AppBarIcon name="search" />
+        <AppBarIcon badge={2} name="shopping-cart" />
+      </>
+    )}
+  />
 ```
 
 #### Buttons
@@ -111,15 +130,16 @@ import { Button } from 'rn-skrull';
 <Button icon="user" size="small" variant="outline">Button</Button>
 
 ```
-| Props                | Value                   |
-|----------------------|-------------------------|
-| size                 | small / larger / medium |
-| icon                 | IconSource              |
-| variant              | outline / solid / text  |
-| onPress              | Function                |
-| style                | StyleSheet              |
-| disabled             | Boolean                 |
-| loading              | Boolean                 |
+| Props                | Value                         |
+|----------------------|-------------------------------|
+| size                 | "small" / "larger" / "medium" |
+| icon                 | Jsx Icon                      |
+| variant              | "outline" / "solid" / "text"  |
+| onPress              | Function                      |
+| style                | StyleSheet                    |
+| disabled             | Boolean                       |
+| isLoading            | Boolean                       |
+| textStyle            | StyleSheet                    |
 
 #### Inputs
 ```javascript
@@ -137,7 +157,6 @@ import { Input } from 'rn-skrull';
 | onChange           | Function               |
 | style              | StyleSheet             |
 | disabled           | Boolean                |
-
 
 #### Title
 ```javascript

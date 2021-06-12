@@ -2,7 +2,6 @@ import React from 'react';
 import {SafeAreaView, ScrollView, View} from 'react-native';
 import Title from './Title';
 
-import {styles} from './styles';
 import Paragraph from './Paragraph';
 import {ThemeProvider} from './ThemeProvider';
 import Button from './Button';
@@ -11,26 +10,44 @@ import Label from './Label';
 import IconButton from './IconButton';
 import AppBar, {AppBarIcon} from './AppBar';
 import Input from './Input';
+import Stack from './Stack';
+import Center from './Center';
+import type {iThemeOverride} from './ThemeProvider/theme.non.interface';
+
+const theme: iThemeOverride = {
+  colors: {
+    background: 'white',
+    text: '#333'
+  }
+};
 
 const App: React.FC = () => {
   return (
-    <ThemeProvider theme={{colors: {primary: '#009688', appBar: {background: '#009688', color: 'white'}}}}>
+    <ThemeProvider theme={theme}>
       <AppBar
-        title="Theme Details"
+        title="Minha tela inicial"
         left={<AppBarIcon name="menu" />}
-        right={[<AppBarIcon name="search" />, <AppBarIcon badge={2} name="shopping-cart" />]}
+        right={() => (
+          <>
+            <AppBarIcon name="search" />
+            <AppBarIcon badge={2} name="shopping-cart" />
+          </>
+        )}
       />
       <SafeAreaView style={{flex: 1}}>
         <ScrollView>
-          <View style={styles.container}>
-            <Title>Text Title</Title>
+          <Stack>
+            <Center>
+              <Title>Text Title</Title>
+            </Center>
             <Spacing />
             <Paragraph>Text Paragraph</Paragraph>
             <Spacing />
 
             <Label>Outlined Input</Label>
-            <Input placeholder="Email" prefix={<IconButton icon="at-sign" />} />
+            <Input placeholderTextColor="#ccc" placeholder="Email" prefix={<IconButton icon="at-sign" />} />
             <Spacing height={8} />
+
             <Label>Flat Input</Label>
             <Input placeholder="Password" variant="flat" suffix={<IconButton icon="eye" />} />
             <Spacing height={8} />
@@ -49,7 +66,9 @@ const App: React.FC = () => {
             <Button icon="home">Button</Button>
             <Spacing />
             <Label>Small Button Solid</Label>
-            <Button size="small">Button</Button>
+            <Button icon="home" size="small">
+              Button
+            </Button>
             <Spacing />
             <Label>Outlined button Medium</Label>
             <Button icon="user" variant="outline">
@@ -70,7 +89,7 @@ const App: React.FC = () => {
               <IconButton icon="user" />
               <IconButton icon="home" variant="outline" />
             </View>
-          </View>
+          </Stack>
         </ScrollView>
       </SafeAreaView>
     </ThemeProvider>

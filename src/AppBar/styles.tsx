@@ -7,7 +7,7 @@ export const useStyles = () => {
   return StyleSheet.create({
     appBar: {
       ...components.appBar.container,
-      backgroundColor: components.appBar.container.backgroundColor ?? colors.appBar.background
+      backgroundColor: components?.appBar?.container?.backgroundColor ?? colors?.appBar?.background ?? ''
     },
 
     safe: {
@@ -16,12 +16,13 @@ export const useStyles = () => {
 
     title: {
       ...components.appBar.title,
-      color: components.appBar.icons.color ?? colors.appBar.color
+      color: components.appBar.icons.color ?? colors.appBar?.color ?? '',
+      textAlign: 'center'
     },
 
     icon: {
       ...components.appBar.icons,
-      color: components.appBar.icons.color ?? colors.appBar.color
+      color: components.appBar.icons.color ?? colors.appBar?.color
     },
 
     row: {

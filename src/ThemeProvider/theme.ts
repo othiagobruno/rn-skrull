@@ -1,14 +1,14 @@
-import {ITheme} from './theme.d';
+import type {ITheme} from './theme.interface';
 
 export const DefaultTheme: ITheme = {
   colors: {
-    primary: '#00b894',
-    background: '#fffff',
+    primary: '#6c5ce7',
+    background: 'white',
     text: '#2d3436',
     label: '#636e72',
     appBar: {
-      background: '#dfe6e9',
-      color: '#222'
+      background: '#6c5ce7',
+      color: 'white'
     }
   },
   components: {
@@ -31,9 +31,7 @@ export const DefaultTheme: ITheme = {
       },
       title: {
         fontSize: 18,
-        textTransform: 'uppercase',
-        paddingLeft: 10,
-        fontWeight: 'bold',
+        fontWeight: '500',
         flex: 1
       },
       icons: {
@@ -41,18 +39,26 @@ export const DefaultTheme: ITheme = {
         height: 42
       }
     },
+
     title: {
-      fontSize: 28,
-      fontWeight: '500',
-      lineHeight: 32
+      fontSize: 32,
+      fontWeight: '400',
+      lineHeight: 32,
+      color: '#333'
     },
+
     label: {
       fontSize: 14,
-      marginVertical: 3
+      marginVertical: 3,
+      color: '#779c'
     },
+
     paragraph: {
-      fontSize: 17
+      fontSize: 17,
+      color: '#444c',
+      fontWeight: '300'
     },
+
     button: {
       disabled: {
         opacity: 0.5
@@ -89,7 +95,7 @@ export const DefaultTheme: ITheme = {
       },
       sizes: {
         small: {
-          paddingVertical: 8,
+          paddingVertical: 6.5,
           borderRadius: 4
         },
         larger: {
@@ -100,13 +106,15 @@ export const DefaultTheme: ITheme = {
         }
       },
       labelStyle: {
-        fontSize: 16,
+        fontSize: 15,
         textTransform: 'uppercase',
-        fontWeight: '700',
+        fontWeight: '500',
         color: '#fff'
       }
     },
+
     input: {
+      placeholderTextColor: '#ccc',
       unselectOutlineColor: '#ccc',
       disabled: {
         opacity: 0.5
@@ -120,12 +128,12 @@ export const DefaultTheme: ITheme = {
         },
         outline: {
           borderWidth: 2,
-          borderRadius: 10
+          borderRadius: 6
         },
         solid: {
           borderRadius: 10,
           borderWidth: 0,
-          backgroundColor: '#dfe6e9'
+          backgroundColor: '#ecf0f1'
         },
         flat: {
           borderRadius: 0,
