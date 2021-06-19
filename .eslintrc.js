@@ -20,6 +20,7 @@ module.exports = {
     'max-len': ['warn', {code: 120, ignoreComments: true, ignoreStrings: true}],
     '@typescript-eslint/no-unused-vars': [2, {args: 'all', argsIgnorePattern: '^_'}],
     '@typescript-eslint/no-empty-function': 'off',
-    'prettier/prettier': ['error', {endOfLine: 'auto'}]
+    'prettier/prettier': ['error', {endOfLine: 'auto'}],
+    '@typescript-eslint/no-explicit-any': 0
   }
 };

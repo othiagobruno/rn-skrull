@@ -5,7 +5,7 @@ a complete ui library to react native
 
 | 01         | 02          |    03       |
 |------------|-------------|-------------|
-| <img src="./examples/assets/Example1.png" width="250"> | <img src="./examples/assets/example2.png" width="250"> | <img src="./examples/assets/example3.png" width="250"> |
+| <img src="./examples/assets/image1.png" width="250"> | <img src="./examples/assets/image2.png" width="250"> | <img src="./examples/assets/image3.png" width="250"> |
 
 ## Installation
 
@@ -95,7 +95,7 @@ import { Stack, Box, Center, Title } from 'rn-skrull';
 
 <Stack align="center" direction="row" padding={20} />
 
-<Box padding={20} backgroundColor="blue" borderColor="red" borderWidth={2} />
+<Box w={20} h={100} p={20} bg="blue" borderColor="red" borderWidth={2} />
 
 <Center>
     <Title> is the center</Title>
@@ -109,15 +109,15 @@ import { Stack, Box, Center, Title } from 'rn-skrull';
 #### AppBar
 
 ```javascript
-import {AppBar, AppBarIcon, Button} from 'rn-skrull';
+import {AppBar, Button} from 'rn-skrull';
 
 <AppBar
     title="Minha tela inicial"
-    left={<AppBarIcon name="menu" />}
+    left={<CustomIconMenu />}
     right={() => (
       <>
-        <AppBarIcon name="search" />
-        <AppBarIcon badge={2} name="shopping-cart" />
+        <CustomIconSearch />
+        <CustomIconCart />
       </>
     )}
   />
@@ -127,7 +127,7 @@ import {AppBar, AppBarIcon, Button} from 'rn-skrull';
 ```javascript
 import { Button } from 'rn-skrull';
 
-<Button icon="user" size="small" variant="outline">Button</Button>
+<Button icon={<CustomIcon />}  size="small" variant="outline">Button</Button>
 
 ```
 | Props                | Value                         |
@@ -145,7 +145,7 @@ import { Button } from 'rn-skrull';
 ```javascript
 import { Input } from 'rn-skrull';
 
-<Input placeholder="Email" prefix={<IconButton icon="at-sign" />} />
+<Input placeholder="Email" prefix={<CustomIconEmail />} />
 
 ```
 |      Props         |          Value         |
@@ -178,7 +178,7 @@ import { Label } from 'rn-skrull';
 ```javascript
 import { IconButton } from 'rn-skrull';
 
-<IconButton icon="home" variant="solid" />
+<IconButton icon={<CustomIcon />} variant="solid" />
 ```
 | Props      | Value                     |
 |------------|---------------------------|
