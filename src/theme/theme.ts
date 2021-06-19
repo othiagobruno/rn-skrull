@@ -44,25 +44,19 @@ export const DefaultTheme: ITheme = {
       fontSize: 32,
       fontWeight: '400',
       lineHeight: 32,
-      color: '#333',
-      fontFamily: 'Roboto',
-      letterSpacing: -0.2
+      color: '#333'
     },
 
     label: {
       fontSize: 14,
       marginVertical: 3,
-      color: '#779c',
-      fontFamily: 'Roboto',
-      letterSpacing: -0.3
+      color: '#779c'
     },
 
     paragraph: {
       fontSize: 17,
       color: '#444c',
-      fontWeight: '300',
-      fontFamily: 'Roboto',
-      letterSpacing: -0.1
+      fontWeight: '300'
     },
 
     button: {
@@ -115,9 +109,7 @@ export const DefaultTheme: ITheme = {
         fontSize: 15,
         textTransform: 'uppercase',
         fontWeight: '500',
-        color: '#fff',
-        fontFamily: 'Roboto',
-        letterSpacing: -0.3
+        color: '#fff'
       }
     },
 
