@@ -35,6 +35,8 @@ const Button: React.FC<Props> = ({
   const styles = useStyles();
   const {colors} = useTheme();
 
+  const isDisabled = !!isLoading || !!disabled;
+
   const labels =
     {
       solid: styles.label_solid,
@@ -57,7 +59,7 @@ const Button: React.FC<Props> = ({
 
   return (
     <Pressable
-      disabled={!!disabled}
+      disabled={isDisabled}
       onPress={onPress}
       style={({pressed}) => [
         styles.button,
@@ -65,7 +67,7 @@ const Button: React.FC<Props> = ({
         styles[variant],
         pressed && variant === 'solid' && styles.pressed,
         pressed && variant !== 'solid' && styles.pressed_opacity,
-        !!disabled && styles.button_disabled,
+        !!isDisabled && styles.button_disabled,
         style,
         createViewStyles(props)
       ]}

@@ -17,6 +17,7 @@ interface AppBarComponent {
   wrapper: ViewStyle;
   title: TextStyle;
   icons: TextStyle;
+  centerTitle: boolean;
 }
 
 interface Button {
@@ -55,9 +56,8 @@ interface Input {
 interface Colors {
   primary: string;
   background: string;
-  text: string;
-  label: string;
   appBar: AppBar;
+  [index: string]: any;
 }
 
 interface AppBar {

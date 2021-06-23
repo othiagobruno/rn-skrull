@@ -2,12 +2,10 @@ import type {ITheme} from './types/theme.interface';
 
 export const DefaultTheme: ITheme = {
   colors: {
-    primary: '#6c5ce7',
+    primary: '#ff7675',
     background: 'white',
-    text: '#2d3436',
-    label: '#636e72',
     appBar: {
-      background: '#6c5ce7',
+      background: '#ff7675',
       color: 'white'
     }
   },
@@ -17,17 +15,18 @@ export const DefaultTheme: ITheme = {
         shadowColor: '#000',
         shadowOffset: {
           width: 0,
-          height: 1
+          height: 2
         },
         shadowOpacity: 0.3,
-        shadowRadius: 2,
-        elevation: 5
+        shadowRadius: 3,
+        elevation: 3
       },
       wrapper: {
-        paddingVertical: 6,
+        paddingVertical: 2,
         flexDirection: 'row',
         alignItems: 'center',
-        justifyContent: 'space-between'
+        justifyContent: 'space-between',
+        height: 54
       },
       title: {
         fontSize: 18,
@@ -37,7 +36,8 @@ export const DefaultTheme: ITheme = {
       icons: {
         width: 42,
         height: 42
-      }
+      },
+      centerTitle: true
     },
 
     title: {
@@ -79,18 +79,29 @@ export const DefaultTheme: ITheme = {
           paddingVertical: 12,
           borderRadius: 4,
           flexDirection: 'row',
-          justifyContent: 'center'
+          justifyContent: 'center',
+          shadowColor: '#000',
+          shadowOffset: {
+            width: 0,
+            height: 1.4
+          },
+          shadowOpacity: 0.4,
+          shadowRadius: 2,
+          elevation: 3
         },
+
         outline: {
           backgroundColor: 'transparent',
-          borderWidth: 2
+          borderWidth: 2,
+          shadowColor: 'transparent'
         },
         solid: {
           alignItems: 'center'
         },
         text: {
           alignItems: 'center',
-          backgroundColor: 'transparent'
+          backgroundColor: 'transparent',
+          shadowColor: 'transparent'
         }
       },
       sizes: {
@@ -114,15 +125,15 @@ export const DefaultTheme: ITheme = {
     },
 
     input: {
-      placeholderTextColor: '#ccc',
-      unselectOutlineColor: '#ccc',
+      placeholderTextColor: '#b2bec3',
+      unselectOutlineColor: '#dfe6e9',
       disabled: {
-        opacity: 0.5
+        opacity: 0.3
       },
       variants: {
         default: {
           borderRadius: 8,
-          paddingHorizontal: 15,
+          paddingHorizontal: 10,
           paddingVertical: 14,
           fontSize: 16
         },
@@ -133,7 +144,7 @@ export const DefaultTheme: ITheme = {
         solid: {
           borderRadius: 10,
           borderWidth: 0,
-          backgroundColor: '#ecf0f1'
+          backgroundColor: '#dfe6e9'
         },
         flat: {
           borderRadius: 0,

@@ -18,4 +18,6 @@ export {default as Stack} from './components/Stack';
 export {default as Box} from './components/Box';
 export {default as SafeView} from './components/SafeView';
 export {default as Center} from './components/Center';
+export {default as Text} from './components/Text';
+export {default as Icon} from './components/Icons';
 export {ActivityIndicator} from './components/ActivityIndicator';

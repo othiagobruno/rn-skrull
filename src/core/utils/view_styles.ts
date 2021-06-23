@@ -17,12 +17,14 @@ export const viewStyleConstants = {
   mr: 'marginRight',
   mt: 'marginTop',
   mb: 'marginBottom',
-  direction: 'flexDirection'
+  direction: 'flexDirection',
+  bg: 'backgroundColor'
 };
 
 export interface IViewStyleConstants {
   w?: number;
   h?: number;
+  bg?: string;
   direction?: 'row' | 'column';
   align?: 'center' | 'flex-end' | 'flex-start' | 'baseline' | 'stretch';
   justify?: 'space-between' | 'flex-end' | 'flex-start' | 'center' | 'space-around' | 'space-evenly';

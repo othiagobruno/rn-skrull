@@ -21,6 +21,7 @@ module.exports = {
     '@typescript-eslint/no-unused-vars': [2, {args: 'all', argsIgnorePattern: '^_'}],
     '@typescript-eslint/no-empty-function': 'off',
     'prettier/prettier': ['error', {endOfLine: 'auto'}],
-    '@typescript-eslint/no-explicit-any': 0
+    '@typescript-eslint/no-explicit-any': 0,
+    '@typescript-eslint/no-var-requires': 0
   }
 };

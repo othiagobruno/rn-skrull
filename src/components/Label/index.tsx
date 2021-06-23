@@ -5,7 +5,7 @@ import {createTextStyles} from '../../core/utils/create_style';
 import type {ITextStylesConstants} from '../../core/utils/text_styles';
 
 interface Props extends ITextStylesConstants, TextStyle {
-  children: string;
+  children: any;
   numberOfLines?: number;
   style?: TextStyle;
 }

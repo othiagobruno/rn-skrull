@@ -1,16 +1,19 @@
 import React from 'react';
 import {GestureResponderEvent, Pressable, StyleProp, Text, TextStyle, View, ViewStyle} from 'react-native';
+import {useTheme} from '../../theme/provider';
+import Icon from '../Icons';
 import {useStyles} from './styles';
 
 interface Props {
   style?: StyleProp<ViewStyle>;
   variant?: 'outline' | 'solid' | 'default';
-  icon?: React.ReactElement;
+  icon?: React.ReactElement | string;
   color?: string | undefined;
   badge?: number;
   onPress?: (event: GestureResponderEvent) => void;
   badgeStyle?: ViewStyle;
   badgeTextStyle?: TextStyle;
+  iconColor?: string;
 }
 
 const IconButton: React.FC<Props> = ({
@@ -20,9 +23,11 @@ const IconButton: React.FC<Props> = ({
   variant = 'default',
   icon = null,
   badgeStyle,
-  badgeTextStyle
+  badgeTextStyle,
+  iconColor
 }) => {
   const styles = useStyles();
+  const {colors} = useTheme();
 
   return (
     <Pressable
@@ -41,7 +46,11 @@ const IconButton: React.FC<Props> = ({
             <Text style={[styles.badge_label, badgeTextStyle]}>{!!badge && badge > 9 ? '9+' : badge}</Text>
           </View>
         )}
-        {icon && icon}
+        {typeof icon == 'string' ? (
+          <Icon name={icon ?? 'user'} color={iconColor ?? (variant === 'solid' ? 'white' : colors.primary)} />
+        ) : (
+          icon
+        )}
       </View>
     </Pressable>
   );

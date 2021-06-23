@@ -1,7 +1,8 @@
 import React, {useEffect, useRef, useState} from 'react';
-import {StyleProp, TextInput, ViewStyle, Animated, TextInputProps, TextStyle} from 'react-native';
+import {StyleProp, TextInput, ViewStyle, Animated, TextInputProps, TextStyle, View} from 'react-native';
 import {useTheme} from '../../theme/provider';
 import {useStyles} from './styles';
+import Color from 'color';
 
 interface Props extends TextInputProps, Omit<TextStyle, 'textAlign'> {
   style?: StyleProp<ViewStyle>;
@@ -11,53 +12,83 @@ interface Props extends TextInputProps, Omit<TextStyle, 'textAlign'> {
   disabled?: boolean;
 }
 
-const Input: React.FC<Props> = ({variant = 'outline', prefix, disabled, suffix, style, ...rest}) => {
-  const styles = useStyles();
-  const theme = useTheme();
-  const [focused, setFocused] = useState(false);
-  const animate = useRef(new Animated.Value(1)).current;
+const Input: React.FC<Props> = React.forwardRef(
+  ({variant = 'outline', prefix, disabled, suffix, style, ...rest}, ref) => {
+    const styles = useStyles();
+    const {colors, components} = useTheme();
+    const [focused, setFocused] = useState(false);
+    const animate = useRef(new Animated.Value(1)).current;
+    const darkenOutline = new Color(components.input.unselectOutlineColor).darken(0.5).string();
 
-  useEffect(() => {
-    if (focused) {
-      Animated.timing(animate, {
-        toValue: 2.3,
-        duration: 150,
-        useNativeDriver: false
-      }).start();
-    } else {
-      Animated.timing(animate, {
-        toValue: 1,
-        duration: 150,
-        useNativeDriver: false
-      }).start();
-    }
-  }, [animate, focused]);
+    useEffect(() => {
+      if (focused) {
+        Animated.timing(animate, {
+          toValue: 1,
+          duration: 250,
+          useNativeDriver: false
+        }).start();
+      } else {
+        Animated.timing(animate, {
+          toValue: 0,
+          duration: 150,
+          useNativeDriver: false
+        }).start();
+      }
+    }, [animate, focused]);
 
-  return (
-    <Animated.View
-      style={[
-        styles.input_view,
-        styles[variant],
-        !focused && styles.unselect,
-        variant === 'outline' && {borderWidth: animate},
-        variant === 'flat' && {borderBottomWidth: animate},
-        !!disabled && styles.disabled,
-        rest
-      ]}
-    >
-      {prefix}
-      <TextInput
-        editable={!disabled}
-        style={[style, styles.input]}
-        placeholderTextColor={rest.placeholderTextColor ?? theme.components.input.placeholderTextColor}
-        focusable
-        onFocus={() => setFocused(true)}
-        onBlur={() => setFocused(false)}
-        {...rest}
-      />
-      {suffix}
-    </Animated.View>
-  );
-};
+    const borderColors = animate.interpolate({
+      inputRange: [0, 1],
+      outputRange: [components.input.unselectOutlineColor, colors.primary]
+    });
+
+    const Prefixo = React.cloneElement(prefix ?? <View />, {
+      iconColor: !focused ? darkenOutline : colors.primary,
+      style: {
+        padding: 2,
+        height: 40,
+        width: 40,
+        marginHorizontal: 4
+      }
+    });
+
+    const Sufixo = React.cloneElement(suffix ?? <View />, {
+      iconColor: !focused ? darkenOutline : colors.primary,
+      style: {
+        padding: 2,
+        height: 40,
+        width: 40,
+        marginHorizontal: 4
+      }
+    });
+
+    return (
+      <View style={{marginTop: 10}}>
+        <Animated.View
+          style={[
+            styles.input_view,
+            styles[variant],
+            !focused && styles.unselect,
+            !!disabled && styles.disabled,
+            {borderColor: borderColors},
+            rest
+          ]}
+        >
+          {Prefixo}
+          <TextInput
+            editable={!disabled}
+            style={[style, styles.input]}
+            placeholderTextColor={rest.placeholderTextColor ?? components.input.placeholderTextColor}
+            focusable
+            onFocus={() => setFocused(true)}
+            onBlur={() => setFocused(false)}
+            {...rest}
+            ref={ref as any}
+          />
+          {Sufixo}
+        </Animated.View>
+      </View>
+    );
+  }
+);
 
 export default Input;

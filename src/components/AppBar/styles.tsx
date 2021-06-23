@@ -17,7 +17,8 @@ export const useStyles = () => {
     title: {
       ...components.appBar.title,
       color: components.appBar.icons.color ?? colors.appBar?.color,
-      textAlign: 'center'
+      textAlign: 'center',
+      flex: 1
     },
 
     icon: {
@@ -36,7 +37,8 @@ export const useStyles = () => {
       flexDirection: 'row',
       alignItems: 'center',
       width: Dimensions.get('screen').width / 2.4,
-      justifyContent: 'center'
+      justifyContent: 'center',
+      flex: 1
     },
 
     row_end: {
