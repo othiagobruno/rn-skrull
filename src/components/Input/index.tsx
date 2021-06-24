@@ -73,7 +73,7 @@ const Input: React.FC<Props> = React.forwardRef(
             rest
           ]}
         >
-          {Prefixo}
+          {prefix && Prefixo}
           <TextInput
             editable={!disabled}
             style={[style, styles.input]}
@@ -84,7 +84,7 @@ const Input: React.FC<Props> = React.forwardRef(
             {...rest}
             ref={ref as any}
           />
-          {Sufixo}
+          {suffix && Sufixo}
         </Animated.View>
       </View>
     );

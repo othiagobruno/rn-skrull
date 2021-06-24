@@ -39,7 +39,7 @@ const AppBar: React.FC<AppBarProps> = ({title, left = null, right = null, center
     <View style={styles.appBar}>
       <SafeAreaView>
         <View style={styles.safe}>
-          <View style={[styles.row, !isCenter && {width: '16%'}]}>{Prefixo}</View>
+          <View style={[styles.row, !isCenter && {width: '16%'}]}>{left && Prefixo}</View>
           <View style={styles.center}>
             {typeof title === 'string' ? (
               <Text numberOfLines={1} style={[styles.title, {textAlign: isCenter ? 'center' : 'left'}]}>
@@ -49,7 +49,7 @@ const AppBar: React.FC<AppBarProps> = ({title, left = null, right = null, center
               title
             )}
           </View>
-          <View style={styles.row_end}>{Sufixo}</View>
+          <View style={styles.row_end}>{right && Sufixo}</View>
         </View>
       </SafeAreaView>
     </View>

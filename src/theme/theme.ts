@@ -79,15 +79,7 @@ export const DefaultTheme: ITheme = {
           paddingVertical: 12,
           borderRadius: 4,
           flexDirection: 'row',
-          justifyContent: 'center',
-          shadowColor: '#000',
-          shadowOffset: {
-            width: 0,
-            height: 1.4
-          },
-          shadowOpacity: 0.4,
-          shadowRadius: 2,
-          elevation: 3
+          justifyContent: 'center'
         },
 
         outline: {
