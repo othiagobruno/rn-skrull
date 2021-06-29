@@ -5,7 +5,7 @@ import Icon from '../Icons';
 import {useTheme} from '../../theme/provider';
 
 interface CheckBoxProps {
-  checked: boolean;
+  checked?: boolean;
   disabled?: boolean;
   onPress?: () => void;
   uncheckedColor?: string;
@@ -15,7 +15,7 @@ interface CheckBoxProps {
 
 const ANIMATION_DURATION = 100;
 
-const CheckBox = ({checked, disabled, onPress, text, ...rest}: CheckBoxProps) => {
+const CheckBox = ({checked = false, disabled, onPress, text, ...rest}: CheckBoxProps) => {
   const {current: scaleAnim} = React.useRef(new Animated.Value(1));
   const isFirstRendering = React.useRef<boolean>(true);
   const theme = useTheme();
@@ -79,7 +79,7 @@ const CheckBox = ({checked, disabled, onPress, text, ...rest}: CheckBoxProps) =>
           <Animated.View style={[styles.fill, {borderColor: checkboxColor}, {borderWidth}]} />
         </View>
       </Animated.View>
-      <Text style={styles.text}>{text} e politicas de privacidade para continuar usando</Text>
+      <Text style={styles.text}>{text}</Text>
     </TouchableOpacity>
   );
 };
