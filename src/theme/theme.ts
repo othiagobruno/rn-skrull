@@ -7,7 +7,8 @@ export const DefaultTheme: ITheme = {
     appBar: {
       background: '#ff7675',
       color: 'white'
-    }
+    },
+    tag: '#eee'
   },
   components: {
     appBar: {

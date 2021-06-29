@@ -4,6 +4,7 @@ export {DefaultTheme} from './theme/theme';
 
 // INTERFACES
 export type {iThemeOverride as ThemeProps} from './theme/types/theme.non.interface';
+export type {BoxProps, CenterProps, ParagraphProps, StackProps, TextProps, TitleProps} from './types/types';
 
 // COMPONENTS
 export {default as Title} from './components/Title';
@@ -20,4 +21,6 @@ export {default as SafeView} from './components/SafeView';
 export {default as Center} from './components/Center';
 export {default as Text} from './components/Text';
 export {default as Icon} from './components/Icons';
+export {default as CheckBox} from './components/CheckBox';
+export {default as Tag} from './components/Tag';
 export {ActivityIndicator} from './components/ActivityIndicator';
