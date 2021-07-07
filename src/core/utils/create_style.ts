@@ -24,11 +24,11 @@ export const useViewStyles = (props: any) => {
     const value = props[keys as keyof ViewStyle];
     const key = viewStyleConstants[keys as keyof IViewStyleConstants] as keyof ViewStyle;
     if (key) {
-      if (listColors.includes(key)) {
+      if (listColors.includes(keys)) {
         styles[key] = convertColor(value);
       } else styles[key] = value;
     } else {
-      if (listColors.includes(key)) {
+      if (listColors.includes(keys)) {
         styles[keys as keyof ViewStyle] = convertColor(value);
       } else styles[keys as keyof ViewStyle] = value;
     }
@@ -56,11 +56,11 @@ export const useTextStyles = (props: any) => {
     const value = props[keys as keyof TextStyle];
     const key = textStylesConstants[keys as keyof ITextStylesConstants] as keyof TextStyle;
     if (key) {
-      if (listColors.includes(key)) {
+      if (listColors.includes(keys)) {
         styles[key] = convertColor(value);
       } else styles[key] = value;
     } else {
-      if (listColors.includes(key)) {
+      if (listColors.includes(keys)) {
         styles[keys as keyof ViewStyle] = convertColor(value);
       } else styles[keys as keyof ViewStyle] = value;
     }
