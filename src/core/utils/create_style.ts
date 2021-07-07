@@ -11,7 +11,7 @@ export const useViewStyles = (props: any) => {
     const [key, color] = cColor?.split('.') ?? [];
     if (color && typeof colors[key][color] === 'string') {
       return colors[key][color];
-    } else if (colors[key] === 'string') {
+    } else if (typeof colors[key] === 'string') {
       return colors[key];
     }
     return cColor ?? colors.primary;
