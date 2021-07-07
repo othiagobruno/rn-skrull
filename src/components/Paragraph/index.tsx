@@ -1,6 +1,6 @@
 import React from 'react';
 import {Text, TextStyle} from 'react-native';
-import {createTextStyles} from '../../core/utils/create_style';
+import {useTextStyles} from '../../core/utils/create_style';
 import type {ITextStylesConstants} from '../../core/utils/text_styles';
 import {useTheme} from '../../theme/provider';
 
@@ -17,7 +17,7 @@ const Paragraph: React.FC<Props> = ({children, ...props}) => {
         {
           ...components.paragraph
         },
-        createTextStyles(props)
+        useTextStyles(props)
       ]}
     >
       {children}

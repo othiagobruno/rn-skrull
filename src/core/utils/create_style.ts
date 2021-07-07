@@ -36,14 +36,34 @@ export const useViewStyles = (props: any) => {
   return {styles};
 };
 
-export const createTextStyles = (props: any) => {
+export const useTextStyles = (props: any) => {
+  const {colors} = useTheme();
   const styles: TextStyle = {};
+
+  const convertColor = (cColor: any) => {
+    const [key, color] = cColor?.split('.') ?? [];
+    if (color && typeof colors[key][color] === 'string') {
+      return colors[key][color];
+    } else if (typeof colors[key] === 'string') {
+      return colors[key];
+    }
+    return cColor ?? colors.primary;
+  };
+
+  const listColors: any[] = ['bg', 'color', 'backgroundColor', 'borderColor'];
 
   for (const keys in props) {
     const value = props[keys as keyof TextStyle];
     const key = textStylesConstants[keys as keyof ITextStylesConstants] as keyof TextStyle;
-    if (key) styles[key] = value;
-    else styles[keys as keyof TextStyle] = value;
+    if (key) {
+      if (listColors.includes(key)) {
+        styles[key] = convertColor(value);
+      } else styles[key] = value;
+    } else {
+      if (listColors.includes(key)) {
+        styles[keys as keyof ViewStyle] = convertColor(value);
+      } else styles[keys as keyof ViewStyle] = value;
+    }
   }
   return styles;
 };
