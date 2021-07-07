@@ -10,6 +10,7 @@ export interface iThemeOverride {
     label?: TextStyle;
     appBar?: AppBarComponent;
   };
+  [index: string]: any;
 }
 
 interface AppBarComponent {
@@ -57,6 +58,7 @@ interface Colors {
   text?: string;
   label?: string;
   appBar?: AppBar;
+  [index: string]: any;
 }
 
 interface AppBar {

@@ -1,14 +1,11 @@
-import React, {ReactNode} from 'react';
-import {SafeAreaView, ViewStyle} from 'react-native';
-import {createViewStyles} from '../../core/utils/create_style';
-import type {IViewStyleConstants} from '../../core/utils/view_styles';
+import React from 'react';
+import {SafeAreaView} from 'react-native';
+import type {BoxProps} from 'src/types/types';
+import {useViewStyles} from '../../core/utils/create_style';
 
-interface SafeViewProps extends IViewStyleConstants, Omit<ViewStyle, 'direction'> {
-  children?: JSX.Element[] | (Element & ReactNode) | JSX.Element;
-}
-
-const SafeView: React.FC<SafeViewProps> = ({children, ...props}) => {
-  return <SafeAreaView style={[{flex: 1}, createViewStyles(props)]}>{children}</SafeAreaView>;
+const SafeView: React.FC<BoxProps> = ({children, ...props}) => {
+  const {styles} = useViewStyles(props);
+  return <SafeAreaView style={[{flex: 1}, styles]}>{children}</SafeAreaView>;
 };
 
 export default SafeView;

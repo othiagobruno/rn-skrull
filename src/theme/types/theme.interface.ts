@@ -10,6 +10,7 @@ export interface ITheme {
     label: TextStyle;
     appBar: AppBarComponent;
   };
+  [index: string]: any;
 }
 
 interface AppBarComponent {

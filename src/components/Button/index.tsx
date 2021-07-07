@@ -3,7 +3,7 @@ import React from 'react';
 import {GestureResponderEvent, Pressable, Text, TextStyle, ViewStyle} from 'react-native';
 import {ActivityIndicator} from '../ActivityIndicator';
 import {useStyles} from './styles';
-import {createViewStyles} from '../../core/utils/create_style';
+import {useViewStyles} from '../../core/utils/create_style';
 import type {IViewStyleConstants} from '../../core/utils/view_styles';
 
 interface Props extends IViewStyleConstants {
@@ -34,7 +34,7 @@ const Button: React.FC<Props> = ({
 }) => {
   const styles = useStyles();
   const {colors} = useTheme();
-
+  const {styles: viewStyles} = useViewStyles(props);
   const isDisabled = !!isLoading || !!disabled;
 
   const labels =
@@ -69,7 +69,7 @@ const Button: React.FC<Props> = ({
         pressed && variant !== 'solid' && styles.pressed_opacity,
         !!isDisabled && styles.button_disabled,
         style,
-        createViewStyles(props)
+        viewStyles
       ]}
     >
       {isLoading ? (
