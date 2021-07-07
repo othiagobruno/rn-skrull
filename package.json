@@ -1,6 +1,6 @@
 {
   "name": "rn-skrull",
-  "version": "1.4.0",
+  "version": "1.4.2",
   "private": false,
   "react-native": "src/index.ts",
   "source": "src/index.ts",

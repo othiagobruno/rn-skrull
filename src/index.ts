@@ -24,3 +24,5 @@ export {default as Icon} from './components/Icons';
 export {default as CheckBox} from './components/CheckBox';
 export {default as Tag} from './components/Tag';
 export {ActivityIndicator} from './components/ActivityIndicator';
+
+export {useTextStyles, useViewStyles} from './core/utils/create_style';

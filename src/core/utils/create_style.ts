@@ -56,7 +56,7 @@ export const useTextStyles = (props: any) => {
     const value = props[keys as keyof TextStyle];
     const key = textStylesConstants[keys as keyof ITextStylesConstants] as keyof TextStyle;
     if (key) {
-      if (listColors.includes(keys)) {
+      if (listColors.includes(key)) {
         styles[key] = convertColor(value);
       } else styles[key] = value;
     } else {
