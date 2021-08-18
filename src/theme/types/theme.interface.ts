@@ -51,6 +51,7 @@ interface Input {
     outline: ViewStyle | TextStyle;
     solid: ViewStyle | TextStyle;
     flat: ViewStyle | TextStyle;
+    error: ViewStyle | TextStyle;
   };
 }
 

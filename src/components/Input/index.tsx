@@ -13,10 +13,11 @@ type Props = React.ComponentPropsWithRef<typeof TextInput> & {
   disabled?: boolean;
   mask?: string;
   maskType?: TextInputMaskTypeProp;
+  error?: boolean;
 };
 
 const Input: React.FC<Props> = React.forwardRef(
-  ({variant = 'outline', prefix, disabled, suffix, style, mask, maskType, ...rest}, ref) => {
+  ({variant = 'outline', prefix, disabled, suffix, style, mask, maskType, error, ...rest}, ref) => {
     const styles = useStyles();
     const {colors, components} = useTheme();
     const [focused, setFocused] = useState(false);
@@ -73,6 +74,7 @@ const Input: React.FC<Props> = React.forwardRef(
             !focused && styles.unselect,
             !!disabled && styles.disabled,
             {borderColor: borderColors},
+            error && styles.error,
             rest
           ]}
         >

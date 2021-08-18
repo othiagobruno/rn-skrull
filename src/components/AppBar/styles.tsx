@@ -7,7 +7,7 @@ export const useStyles = () => {
   return StyleSheet.create({
     appBar: {
       ...components.appBar.container,
-      backgroundColor: components?.appBar?.container?.backgroundColor ?? colors?.appBar?.background
+      backgroundColor: colors.appBar.background
     },
 
     safe: {

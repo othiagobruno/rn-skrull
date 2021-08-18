@@ -35,6 +35,10 @@ export const useStyles = () => {
 
     disabled: {
       ...theme.components.input.disabled
+    },
+
+    error: {
+      ...theme.components.input.variants.error
     }
   });
 };

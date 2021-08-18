@@ -20,7 +20,7 @@ export const DefaultTheme: ITheme = {
         },
         shadowOpacity: 0.3,
         shadowRadius: 3,
-        elevation: 3
+        elevation: 5
       },
       wrapper: {
         paddingVertical: 2,
@@ -142,6 +142,11 @@ export const DefaultTheme: ITheme = {
         flat: {
           borderRadius: 0,
           borderBottomWidth: 2
+        },
+        error:{
+          borderWidth: 2,
+          borderRadius: 6,
+          borderColor: 'red'
         }
       }
     }
