@@ -143,7 +143,7 @@ export const DefaultTheme: ITheme = {
           borderRadius: 0,
           borderBottomWidth: 2
         },
-        error:{
+        error: {
           borderWidth: 2,
           borderRadius: 6,
           borderColor: 'red'
